@@ -1,4 +1,4 @@
-# Supply Chain Risk Monitor — Advanced Edition
+# Supply Chain Risk Monitor 
 
 ## Goal
 Monitor supplier news, financial distress, geopolitical events, ownership structures (to 1% holdings including SOEs and Board of Directors), and port/logistics disruptions. Generate per-supplier risk scores, flag state-controlled suppliers, recommend alternate suppliers for crisis resilience, and deliver a weekly digest report.
