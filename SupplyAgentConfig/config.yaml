@@ -1,0 +1,135 @@
+name: Supply Chain Risk Monitor
+description: Monitors supplier news, financial signals, geopolitical events, and ownership structure to detect supply chain disruptions — with alternate supplier recommendations and Neo4j graph guidance.
+version: 2.0.0
+
+form:
+  fields:
+    - id: supplier_list
+      name: Supplier Portfolio
+      type: textarea
+      required: false
+      description: "Paste your supplier list (one per line) with format: SupplierName | Country | Category | Criticality(Critical/High/Medium/Low). Leave blank to run a general market risk scan."
+      example: "ACME Magnetics Ltd | China | Rare Earth | Critical
+EuroAuto Parts GmbH | Germany | Automotive | High"
+
+    - id: industry_sector
+      name: Industry / Sector Focus
+      type: select
+      required: true
+      default_value: manufacturing
+      description: Primary industry sector to monitor for risk signals.
+      options:
+        - label: Manufacturing (General)
+          value: manufacturing
+        - label: Automotive & EV
+          value: automotive
+        - label: Electronics & Semiconductors
+          value: electronics
+        - label: Aerospace & Defense
+          value: aerospace
+        - label: Pharmaceuticals & Medical
+          value: pharma
+        - label: Energy & Renewables
+          value: energy
+        - label: Food & Agriculture
+          value: food
+
+    - id: geographic_focus
+      name: Geographic Regions to Monitor
+      type: multiselect
+      required: true
+      description: Select all regions where your suppliers are located or that are geopolitically relevant.
+      options:
+        - label: China
+          value: china
+        - label: East Asia (Japan, Korea, Taiwan)
+          value: east_asia
+        - label: Southeast Asia
+          value: southeast_asia
+        - label: South Asia (India, Pakistan)
+          value: south_asia
+        - label: Europe (EU & UK)
+          value: europe
+        - label: Middle East
+          value: middle_east
+        - label: North America
+          value: north_america
+        - label: Latin America
+          value: latam
+        - label: Africa
+          value: africa
+
+    - id: risk_threshold
+      name: Alert Risk Threshold
+      type: select
+      required: true
+      default_value: high
+      description: Minimum risk level to include in the alert digest.
+      options:
+        - label: Critical Only (Score 85+)
+          value: critical
+        - label: High & Above (Score 70+)
+          value: high
+        - label: Medium & Above (Score 50+)
+          value: medium
+        - label: All Signals
+          value: all
+
+    - id: ownership_depth
+      name: Ownership Analysis Depth
+      type: select
+      required: true
+      default_value: one_percent
+      description: Minimum ownership stake to flag in the ownership analysis.
+      options:
+        - label: 1%+ (Full depth — all significant holders)
+          value: one_percent
+        - label: 5%+ (Major holders only)
+          value: five_percent
+        - label: 10%+ (Controlling interests)
+          value: ten_percent
+        - label: 25%+ (Majority/blocking stakes)
+          value: twenty_five_percent
+
+    - id: alternate_supplier_count
+      name: Alternate Suppliers per At-Risk Supplier
+      type: integer
+      required: false
+      default_value: 3
+      description: How many alternate supplier recommendations to generate for each at-risk supplier.
+
+    - id: email_recipients
+      name: Email Recipients for Digest
+      type: string
+      required: false
+      description: Comma-separated email addresses to receive the weekly digest. Requires Gmail connector.
+      example: "procurement@company.com, ops@company.com"
+
+    - id: report_period
+      name: Report Period
+      type: select
+      required: false
+      default_value: weekly
+      description: Time window for this risk scan.
+      options:
+        - label: Weekly
+          value: weekly
+        - label: Bi-Weekly
+          value: biweekly
+        - label: Monthly
+          value: monthly
+        - label: Ad-hoc / On-Demand
+          value: adhoc
+
+memory:
+  persist_fields: [industry_sector, geographic_focus, risk_threshold, ownership_depth, overall_risk_score, critical_alerts, suppliers_monitored, state_linked_flags, signals_detected]
+  aggregations:
+    - field: overall_risk_score
+      ops: [avg, count]
+      group_by: [industry_sector]
+    - field: critical_alerts
+      ops: [sum, avg]
+      group_by: [geographic_focus]
+    - field: state_linked_flags
+      ops: [sum, avg]
+      group_by: [industry_sector]

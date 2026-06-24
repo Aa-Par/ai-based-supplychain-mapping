@@ -1,0 +1,359 @@
+{
+  "root": "main",
+  "elements": {
+    "k1": {
+      "type": "Card",
+      "props": {
+        "title": "",
+        "description": null
+      },
+      "children": [
+        "k1v",
+        "k1b"
+      ]
+    },
+    "k2": {
+      "type": "Card",
+      "props": {
+        "title": "",
+        "description": null
+      },
+      "children": [
+        "k2v",
+        "k2b"
+      ]
+    },
+    "k3": {
+      "type": "Card",
+      "props": {
+        "title": "",
+        "description": null
+      },
+      "children": [
+        "k3v",
+        "k3b"
+      ]
+    },
+    "k4": {
+      "type": "Card",
+      "props": {
+        "title": "",
+        "description": null
+      },
+      "children": [
+        "k4v",
+        "k4b"
+      ]
+    },
+    "n1": {
+      "type": "Card",
+      "props": {
+        "title": "",
+        "description": null
+      },
+      "children": [
+        "n1v"
+      ]
+    },
+    "n2": {
+      "type": "Card",
+      "props": {
+        "title": "",
+        "description": null
+      },
+      "children": [
+        "n2v"
+      ]
+    },
+    "n3": {
+      "type": "Card",
+      "props": {
+        "title": "",
+        "description": null
+      },
+      "children": [
+        "n3v"
+      ]
+    },
+    "n4": {
+      "type": "Card",
+      "props": {
+        "title": "",
+        "description": null
+      },
+      "children": [
+        "n4v"
+      ]
+    },
+    "k1b": {
+      "type": "Badge",
+      "props": {
+        "text": "",
+        "variant": "destructive"
+      }
+    },
+    "k1v": {
+      "type": "Heading",
+      "props": {
+        "text": "",
+        "level": 2
+      }
+    },
+    "k2b": {
+      "type": "Badge",
+      "props": {
+        "text": "",
+        "variant": "secondary"
+      }
+    },
+    "k2v": {
+      "type": "Heading",
+      "props": {
+        "text": "",
+        "level": 2
+      }
+    },
+    "k3b": {
+      "type": "Badge",
+      "props": {
+        "text": "",
+        "variant": "destructive"
+      }
+    },
+    "k3v": {
+      "type": "Heading",
+      "props": {
+        "text": "",
+        "level": 2
+      }
+    },
+    "k4b": {
+      "type": "Badge",
+      "props": {
+        "text": "",
+        "variant": "destructive"
+      }
+    },
+    "k4v": {
+      "type": "Heading",
+      "props": {
+        "text": "",
+        "level": 2
+      }
+    },
+    "n1v": {
+      "type": "Heading",
+      "props": {
+        "text": "",
+        "level": 3
+      }
+    },
+    "n2v": {
+      "type": "Heading",
+      "props": {
+        "text": "",
+        "level": 3
+      }
+    },
+    "n3v": {
+      "type": "Heading",
+      "props": {
+        "text": "",
+        "level": 3
+      }
+    },
+    "n4v": {
+      "type": "Heading",
+      "props": {
+        "text": "",
+        "level": 3
+      }
+    },
+    "main": {
+      "type": "Stack",
+      "props": {
+        "gap": "md",
+        "direction": "vertical"
+      },
+      "children": [
+        "top-alert",
+        "kpi-grid",
+        "sep1",
+        "risk-chart-card",
+        "sep2",
+        "supplier-table-card",
+        "sep3",
+        "ownership-card",
+        "sep4",
+        "alt-supplier-card",
+        "sep5",
+        "neo4j-card"
+      ]
+    },
+    "sep1": {
+      "type": "Separator",
+      "props": {}
+    },
+    "sep2": {
+      "type": "Separator",
+      "props": {}
+    },
+    "sep3": {
+      "type": "Separator",
+      "props": {}
+    },
+    "sep4": {
+      "type": "Separator",
+      "props": {}
+    },
+    "sep5": {
+      "type": "Separator",
+      "props": {}
+    },
+    "kpi-grid": {
+      "type": "Grid",
+      "props": {
+        "gap": "sm",
+        "columns": 4
+      },
+      "children": [
+        "k1",
+        "k2",
+        "k3",
+        "k4"
+      ]
+    },
+    "alt-table": {
+      "type": "Table",
+      "props": {
+        "rows": [],
+        "columns": []
+      }
+    },
+    "own-alert": {
+      "type": "Alert",
+      "props": {
+        "type": "warning",
+        "title": "",
+        "message": ""
+      }
+    },
+    "own-stack": {
+      "type": "Stack",
+      "props": {
+        "gap": "sm",
+        "direction": "vertical"
+      },
+      "children": [
+        "own-alert",
+        "own-table"
+      ]
+    },
+    "own-table": {
+      "type": "Table",
+      "props": {
+        "rows": [],
+        "columns": []
+      }
+    },
+    "sup-table": {
+      "type": "Table",
+      "props": {
+        "rows": [],
+        "columns": []
+      }
+    },
+    "top-alert": {
+      "type": "Alert",
+      "props": {
+        "type": "error",
+        "title": "",
+        "message": ""
+      }
+    },
+    "neo4j-card": {
+      "type": "Card",
+      "props": {
+        "title": "",
+        "description": null
+      },
+      "children": [
+        "neo4j-grid"
+      ]
+    },
+    "neo4j-grid": {
+      "type": "Grid",
+      "props": {
+        "gap": "sm",
+        "columns": 4
+      },
+      "children": [
+        "n1",
+        "n2",
+        "n3",
+        "n4"
+      ]
+    },
+    "risk-chart": {
+      "type": "BarChart",
+      "props": {
+        "bars": [
+          {
+            "key": "curr",
+            "color": "#ef4444",
+            "label": "This Week"
+          },
+          {
+            "key": "prior",
+            "color": "#f97316",
+            "label": "Prior Week"
+          }
+        ],
+        "data": [],
+        "xKey": "cat",
+        "title": null,
+        "height": 300
+      }
+    },
+    "ownership-card": {
+      "type": "Card",
+      "props": {
+        "title": "",
+        "description": null
+      },
+      "children": [
+        "own-stack"
+      ]
+    },
+    "risk-chart-card": {
+      "type": "Card",
+      "props": {
+        "title": "",
+        "description": null
+      },
+      "children": [
+        "risk-chart"
+      ]
+    },
+    "alt-supplier-card": {
+      "type": "Card",
+      "props": {
+        "title": "",
+        "description": null
+      },
+      "children": [
+        "alt-table"
+      ]
+    },
+    "supplier-table-card": {
+      "type": "Card",
+      "props": {
+        "title": "",
+        "description": null
+      },
+      "children": [
+        "sup-table"
+      ]
+    }
+  }
+}
