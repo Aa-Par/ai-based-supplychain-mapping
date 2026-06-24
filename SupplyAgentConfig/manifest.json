@@ -1,0 +1,7 @@
+{
+  "name": "Supply Chain Risk Monitor",
+  "description": "Monitors supplier news, financial signals, geopolitical events, and ownership structure to detect supply chain disruptions — with alternate supplier recommendations and Neo4j graph guidance.",
+  "version": "2.0.0",
+  "createdAt": "2026-06-22T05:38:04.647Z",
+  "sourceAppId": "03f9cbb4-5044-4ea2-b648-0d1f4d774a0e"
+}
