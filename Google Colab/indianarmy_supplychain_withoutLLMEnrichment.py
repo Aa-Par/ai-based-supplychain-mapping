@@ -1,6 +1,6 @@
-# -*- coding: utf-8 -*-
+
 """
-Indian Army Supply Chain Risk Monitor — MERGED v5.0
+Indian Army Supply Chain Risk Monitor 
 ====================================================
 • HuggingFace LLM (Phi-3-mini) for all analysis — no live web search, no cloud APIs
 • Deterministic baseline scoring with LLM overlay (graceful fallback if LLM fails)
