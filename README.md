@@ -2,7 +2,7 @@
 
 An AI-powered risk intelligence dashboard that analyzes geopolitical crisis scenarios and their impact on the multi-tier supplier network behind six armored vehicle programs — flagging state-owned-enterprise (SOE) exposure, identifying at-risk suppliers, and recommending Indian alternate suppliers for crisis resilience.
 
-Built and run entirely in **Google Colab**, modeled on the CREAO Supply Chain Risk Monitor agent design (`SKILL.md`, `config.yaml`, `dashboard.json`, `manifest.json`).
+Built and run entirely in **Google Colab**
 
 ---
 
