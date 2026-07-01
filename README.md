@@ -93,17 +93,7 @@ The output is a Plotly-based interactive dashboard, structured to mirror the CRE
 
 ---
 
-## 5. Design Principles (lessons learned during development)
-
-- **No "show all" fallbacks.** If a filter fails to find a match, the dashboard shows an explicit empty-state annotation rather than silently displaying the full unfiltered list — a "show all" fallback masks bugs instead of surfacing them.
-- **Deduplication at ingestion.** LLM-touched fields occasionally repeat a supplier name; duplicates are merged by name, keeping the higher-scoring entry, with a printed warning.
-- **Country/supplier name normalization is the single most common source of bugs** in this project — every filtering step normalizes names first.
-- **The dashboard must always render.** Any LLM failure (timeout, malformed JSON, model load issue) falls back to the deterministic scoring path rather than crashing or showing a blank dashboard.
-- **`py_compile` verification** is run on every script version before delivery, as a basic syntax safety gate.
-
----
-
-## 6. How to Run
+## 5. How to Run
 
 1. Open the notebook in Google Colab.
 2. Run the setup cells (model download — Qwen2.5-3B-Instruct — happens once per runtime; optionally point `HF_HOME` at Google Drive to persist the model across sessions).
@@ -122,4 +112,4 @@ The output is a Plotly-based interactive dashboard, structured to mirror the CRE
 - This is a demonstration/prototype system built on a small, illustrative dataset (24 supply-chain rows, 34 ownership rows, 18 Indian alternates across six vehicle programs) — not a production intelligence feed.
 - Geopolitical "crisis" input is user-selected, not sourced from live news or threat feeds.
 - `financial_distress_score` is currently a placeholder column, not yet populated with real financial-health data.
-- The system does not currently connect to Neo4j or any external graph database — all relational reasoning is done in-memory over the three CSVs using pandas.
+- The system does not currently connect to any external graph database — all relational reasoning is done in-memory over the three CSVs using pandas.
