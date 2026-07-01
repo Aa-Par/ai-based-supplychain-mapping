@@ -1,0 +1,35 @@
+tier1_supplier,owner,owner_type,owner_country,stake_pct,board_role
+ARQUUS,John Cockerill Group,Industrial Conglomerate,Belgium,100,Parent company; Walloon govt partial stake
+ARQUUS,Région Wallonne (Belgium),Government,Belgium,5.2,Indirect via John Cockerill holding
+ST Engineering,Temasek Holdings,Sovereign Wealth Fund,Singapore,50.3,Majority shareholder; Singapore MoF controlled
+ST Engineering,Singapore Govt (GIC),Government Investment,Singapore,4.1,Board observer seat
+Hutchinson,TotalEnergies SE,Public Co / State-Influenced,France,100,Full subsidiary
+Hutchinson,Bpifrance (French Govt),Government,France,1.8,Indirect via TotalEnergies stake
+Renault Trucks,Volvo Group AB,Public Listed,Sweden,100,Full subsidiary; no state link
+Renault Trucks,Swedish Pension Funds,Institutional,Sweden,3.1,Passive institutional investors
+Michelin,Groupe Michelin SACA,Public Listed,France,100,Self-governed — no material state stake
+Michelin,Norges Bank Inv Mgmt,Government Pension Fund,Norway,1.4,Passive sovereign investor
+Mahindra Defense,Mahindra & Mahindra,Public Listed — Indian,India,100,Parent — no state stake
+Mahindra Defense,LIC of India,Government Insurer,India,2.1,Passive institutional — Indian state-owned insurer
+Steyr Motors,Rheinmetall AG,Public Listed Defense,Germany,100,Acquired 2021 — no direct state stake
+Cummins,Vanguard Group,Institutional,USA,9.1,Passive institutional
+Cummins,BlackRock Inc.,Institutional,USA,7.3,Passive institutional
+Ford Motor Co.,Ford Family (Class B),Family / Founder,USA,40,Special voting rights — no state link
+Ford Motor Co.,Vanguard Group,Institutional,USA,8.2,Passive institutional
+Plasan,Plasan Group (Private),Private — Israeli,Israel,100,Family-owned; kibbutz origin
+Paramount,Paramount Group (Pvt),Private,South Africa,100,Founder-controlled
+Lenco,Lenco Industries (Pvt),Private,USA,100,Founder-owned
+BAE Systems Hägglunds,BAE Systems plc,Public Listed Defense,United Kingdom,100,Parent company; held via BAE Systems AB (Sweden) subsidiary
+BAE Systems Hägglunds,BlackRock Inc.,Institutional,USA,9.45,Passive institutional (shareholder of BAE Systems plc)
+BAE Systems Hägglunds,"WCM Investment Management, LLC",Institutional,USA,11.45,Passive institutional (shareholder of BAE Systems plc)
+BFGoodrich,Michelin,Public Listed,France,100,Full subsidiary
+General Dynamics Land Systems,General Dynamics Corporation,Public Listed Defense,USA,100,Parent company
+General Dynamics Land Systems,Longview Asset Management,Institutional,USA,10,Passive institutional (shareholder of General Dynamics Corp)
+General Dynamics Land Systems,The Vanguard Group,Institutional,USA,6,Passive institutional (shareholder of General Dynamics Corp)
+General Dynamics Land Systems,BlackRock Inc.,Institutional,USA,6.8,Passive institutional (shareholder of General Dynamics Corp)
+Larsen & Toubro,L&T Employee Welfare Foundation,Employee Trust,India,14.6,Largest single shareholder; no promoter family control
+Mickey Thompson,The Goodyear Tire & Rubber Company,Public Listed,USA,100,Full subsidiary
+Milanion NTGS,Davinder Dogra,Private,United Arab Emirates,100,Founder-controlled
+Military Systems Group,Richland Industries,Private,USA,100,Full Subsidiary
+Rafael Advanced Defense Systems,Government of Israel,Government,Israel,100,State-Owned Enterprise
+Rodgard,Hutchinson Industries,Private Subsidiary,France,100,Division of Hutchinson Industries (itself a subsidiary of Hutchinson/TotalEnergies SE)
