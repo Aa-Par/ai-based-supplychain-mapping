@@ -686,8 +686,6 @@ def _parse_llm_output(raw: str) -> dict:
     return parsed
 
 def build_llm_client():
-    # HuggingFace is the only supported backend — see Cell 2. There is
-    # deliberately no Gemini/OpenAI branch: everything runs locally.
     if LLM_BACKEND == "huggingface":
         from transformers import TextIteratorStreamer
 
