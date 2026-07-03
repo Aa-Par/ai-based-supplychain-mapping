@@ -91,7 +91,7 @@ Readiness Score = Capability Match      (0–30)
 |------------------------|-------|------------------------------------------------|
 | **Capabilty Match** | 0–30  | Exact match between *indian_alternates.component_category* and the at-risk supplier’s component/category → 30. Partial keyword match > 15. Category-only match > 5. |
 | **Country Risk Bonus**    | 0–25  | Alternate’s country = India → 25. Allied/neutral country → 10–15. Same country as the crisis-hit supplier → 0. |
-| **Capacity Signal**    | 0–20  | If you don’t have real capacity data, use a proxy: number of *components_supplied* listed for that company (more listed components ≈ broader manufacturing base) → scaled 0–20. Flag this proxy explicitly in the dashboard/notes so it doesn’t look like fabricated data. |
+| **Capacity Signal**    | 0–20  | alternate supplier's production volume and manufacturing capability. |
 | **Lead-Time Score**    | 0–15  | Operational delay and efficiency involved in onboarding and receiving parts from an alternate supplier compared to the original one. |
 | **Existing Relationship** | 0–10 | If the alternate already supplies a different component in the same vehicle program → 10 (faster onboarding, known vendor). Else 0. |
 
