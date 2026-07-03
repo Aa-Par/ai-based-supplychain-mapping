@@ -292,7 +292,7 @@ for _, r in supply_df.iterrows():
     })
 print(f"✅ Supply chain GRAPH: {len(GRAPH)} edges")
 
-# ── Concentration map — how many distinct suppliers serve each
+# ── Concentration map — how many distinct suppliers serve provide a specific component
 CONCENTRATION_MAP: dict = {}
 for edge in GRAPH:
     key = (edge["vehicle"], edge["component"])
