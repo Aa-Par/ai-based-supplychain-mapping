@@ -89,11 +89,11 @@ Readiness Score = Capability Match      (0–30)
 
 | Component              | Range | How to compute deterministically from your CSVs |
 |------------------------|-------|------------------------------------------------|
-| **Country Risk Bonus** | 0–30  | Exact match between *indian_alternates.component_category* and the at-risk supplier’s component/category → 30. Partial keyword match > 15. Category-only match > 5. |
-| **Capacity Signal**    | 0–25  | Alternate’s country = India → 25 (this is an Indian-alternates catalog, so mostly constant, but keep the field for future non-Indian alternates). Allied/neutral country → 10–15. Same country as the crisis-hit supplier → 0. |
+| **Capabilty Match** | 0–30  | Exact match between *indian_alternates.component_category* and the at-risk supplier’s component/category → 30. Partial keyword match > 15. Category-only match > 5. |
+| **Country Risk Bonus**    | 0–25  | Alternate’s country = India → 25. Allied/neutral country → 10–15. Same country as the crisis-hit supplier → 0. |
 | **Capacity Signal**    | 0–20  | If you don’t have real capacity data, use a proxy: number of *components_supplied* listed for that company (more listed components ≈ broader manufacturing base) → scaled 0–20. Flag this proxy explicitly in the dashboard/notes so it doesn’t look like fabricated data. |
 | **Lead-Time Score**    | 0–15  | If you don’t have real lead-time data, this should default to a fixed neutral value (e.g., 8/15) with a “data not available” flag—don’t let the LLM invent a number here, since fabricated lead times are exactly the kind of thing that erodes credibility under technical scrutiny. |
-| **Existing Relationship** | 0–10 | If the alternate already supplies a different component in the same vehicle program (check *supply_chain.csv*) → 10 (faster onboarding, known vendor). Else 0. |
+| **Existing Relationship** | 0–10 | If the alternate already supplies a different component in the same vehicle program → 10 (faster onboarding, known vendor). Else 0. |
 
 ---
 
