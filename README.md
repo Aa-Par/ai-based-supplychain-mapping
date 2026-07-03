@@ -102,7 +102,7 @@ Readiness Score = Capability Match      (0–30)
 The output is a Plotly-based interactive dashboard, structured to mirror the CREAO Supply Chain Risk Monitor layout defined in `dashboard.json`:
 
 - **Top Alert Banner** — overall crisis risk level for the selected scenario.
-- **4 KPI Cards** — Portfolio Risk Score, Suppliers Monitored, Critical Alerts, State-Linked (SOE) Flags — all scoped to the crisis-exposed subset, not the full portfolio.
+- **4 KPI Cards** — Portfolio Risk Score, Suppliers Monitored, Critical Alerts — all scoped to the crisis-exposed subset, not the full portfolio.
 - **Risk Chart** — bar chart of risk scores by category, current vs. prior scan (where prior data exists).
 - **Full Supplier Risk Register** — every supplier in the portfolio, sorted by risk score, with a **Crisis Exposure** column (Direct / Tier-2 Dependency / Ownership-Linked / None). This table is intentionally left unfiltered so the analyst can see the whole portfolio at a glance.
 - **Ownership Analysis Table** — flagged suppliers with owner name, owner type, owner country, and stake %, highlighting SOE and foreign-state exposure.
