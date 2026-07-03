@@ -54,7 +54,7 @@ A supplier is flagged as crisis-exposed if **any** of the following hold for the
 
 The crisis country selected by the user (not the LLM's self-reported `crisis_countries` field, which is spelling-inconsistent) is treated as the single source of truth for filtering.
 
-### 3.4 Risk Scoring Formula
+### 3.4 Supplier Risk Scoring Formula
 
 ```
 Risk Score = Base Weight
@@ -74,6 +74,26 @@ Risk Score = Base Weight
 | Concentration Penalty | 0–5 | Single-source dependency — no alternate on record for that component |
 
 This deterministic score is blended with the LLM's independent estimate by taking the higher value (Section 3.2), so the LLM can escalate a risk the formula misses but can never quietly suppress one the data supports.
+
+
+### 3.5 Alternate Supplier Readiness Scoring System
+
+```
+Readiness Score = Capability Match      (0–30)
+                 + Country Risk Bonus    (0–25)
+                 + Capacity Signal       (0–20)
+                 + Lead-Time Score       (0–15)
+                 + Existing Relationship (0–10)
+→ Capped at 100
+```
+
+| Component              | Range | How to compute deterministically from your CSVs |
+|------------------------|-------|------------------------------------------------|
+| **Country Risk Bonus** | 0–30  | Exact match between *indian_alternates.component_category* and the at-risk supplier’s component/category → 30. Partial keyword match > 15. Category-only match > 5. |
+| **Capacity Signal**    | 0–25  | Alternate’s country = India → 25 (this is an Indian-alternates catalog, so mostly constant, but keep the field for future non-Indian alternates). Allied/neutral country → 10–15. Same country as the crisis-hit supplier → 0. |
+| **Capacity Signal**    | 0–20  | If you don’t have real capacity data, use a proxy: number of *components_supplied* listed for that company (more listed components ≈ broader manufacturing base) → scaled 0–20. Flag this proxy explicitly in the dashboard/notes so it doesn’t look like fabricated data. |
+| **Lead-Time Score**    | 0–15  | If you don’t have real lead-time data, this should default to a fixed neutral value (e.g., 8/15) with a “data not available” flag—don’t let the LLM invent a number here, since fabricated lead times are exactly the kind of thing that erodes credibility under technical scrutiny. |
+| **Existing Relationship** | 0–10 | If the alternate already supplies a different component in the same vehicle program (check *supply_chain.csv*) → 10 (faster onboarding, known vendor). Else 0. |
 
 ---
 
