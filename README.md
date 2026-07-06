@@ -70,7 +70,7 @@ Risk Score = Base Weight
 | Base Weight | fixed | Category/component criticality |
 | Geopolitical Signal Score | 0–20 | Whether the supplier's Tier-1/Tier-2 country or ownership chain is tied to the active crisis scenario |
 | Ownership Risk Score | 0–15 | SOE / state-linked ownership stake, sourced from `ownership.csv` |
-| Financial Distress Score | 0–10 | Placeholder hook (`financial_distress_score` column in `ownership.csv`) for future financial-health signals |
+| Financial Distress Score | 0–10 | Placeholder hook (`financial_distress` column in `ownership.csv`) for future financial-health signals.                                      0 = Financially healthy — no distress signals.                                                                                                                              5 = Moderate distress — some financial strain but not existential.                                                                                                          10 = Severe distress — active red flags: heavy losses.  |
 | Concentration Penalty | 0–5 | Single-source dependency — no alternate on record for that component |
 
 This deterministic score is blended with the LLM's independent estimate by taking the higher value (Section 3.2), so the LLM can escalate a risk the formula misses but can never quietly suppress one the data supports.
