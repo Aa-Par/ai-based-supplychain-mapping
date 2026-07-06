@@ -2,7 +2,7 @@
 
 An AI-powered risk intelligence dashboard that analyzes geopolitical crisis scenarios and their impact on the multi-tier supplier network behind six armored vehicle programs — flagging state-owned-enterprise (SOE) exposure, identifying at-risk suppliers, and recommending Indian alternate suppliers for crisis resilience.
 
-Built and run entirely in **Google Colab**
+Built and run entirely in **Google Colab** on T4 GPU.
 
 ---
 
@@ -21,7 +21,7 @@ All data lives in three CSV files uploaded at runtime (no data is hardcoded into
 | File | Rows | Description |
 |---|---|---|
 | `supply_chain.csv` | Vehicle → Category → Component → Tier-1 Supplier (+country) → Tier-2 Supplier (+country) | The physical bill-of-materials / supplier graph for six armored vehicle programs |
-| `ownership.csv` | Tier-1 Supplier → Owner → Owner Type → Owner Country → Stake % → Board Role | Beneficial ownership chains, used to detect SOE and foreign-state exposure |
+| `ownership.csv` | Tier-1 Supplier → Owner → Owner Type → Owner Country → Stake % → Board Role → Financial Distress Score | Beneficial ownership chains, used to detect SOE and foreign-state exposure |
 | `indian_alternates.csv` | Company → Component Category → Components Supplied → Country | Candidate Indian suppliers that could substitute for an at-risk foreign supplier |
 
 These three files together are the relational equivalent of a graph: `supply_chain.csv` encodes `Product –CONTAINS→ Component –SUPPLIED_BY→ Supplier –LOCATED_IN→ Country`, and `ownership.csv` encodes `Supplier –OWNED_BY→ Owner –LOCATED_IN→ Country`. The system reasons over these relationships in pandas rather than a graph database — no Neo4j instance is required.
@@ -65,7 +65,7 @@ Risk Score = Base Weight
 → capped at 100
 ```
 
-| Component | Range | Driven by |
+| Component | Range | What It Represents |
 |---|---|---|
 | Base Weight | fixed | Category/component criticality |
 | Geopolitical Signal Score | 0–20 | Whether the supplier's Tier-1/Tier-2 country or ownership chain is tied to the active crisis scenario |
@@ -87,7 +87,7 @@ Readiness Score = Capability Match      (0–30)
 → Capped at 100
 ```
 
-| Component              | Range | How to compute deterministically from your CSVs |
+| Component              | Range | What It Represents |
 |------------------------|-------|------------------------------------------------|
 | **Capabilty Match** | 0–30  | Exact match between *indian_alternates.component_category* and the at-risk supplier’s component/category → 30. Partial keyword match > 15. Category-only match > 5. |
 | **Country Risk Bonus**    | 0–25  | Alternate’s country = India → 25. Allied/neutral country → 10–15. Same country as the crisis-hit supplier → 0. |
@@ -109,8 +109,6 @@ The output is a Plotly-based interactive dashboard, structured to mirror the CRE
 - **Alternate Suppliers — Readiness & Cost** — Indian alternates for crisis-exposed suppliers only, pulled from `indian_alternates.csv`.
 - **Config/Graph Status Card** — ingestion summary (row counts loaded, any dedup warnings, LLM call success/fallback status).
 
-`dashboard.json`'s element tree (Cards, Badges, Tables, BarChart, Alert, Grid, Separator) is used as the layout contract the script's Plotly output is mapped onto, so the visual structure matches the CREAO reference design in `CREAOdashboard.pdf`.
-
 ---
 
 ## 5. How to Run
@@ -129,7 +127,6 @@ The output is a Plotly-based interactive dashboard, structured to mirror the CRE
 
 ## 7. Scope & Limitations
 
-- This is a demonstration/prototype system built on a small, illustrative dataset (24 supply-chain rows, 34 ownership rows, 18 Indian alternates across six vehicle programs) — not a production intelligence feed.
+- This is a demonstration/prototype system built on a small, illustrative dataset — not a production intelligence feed.
 - Geopolitical "crisis" input is user-selected, not sourced from live news or threat feeds.
-- `financial_distress_score` is currently a placeholder column, not yet populated with real financial-health data.
 - The system does not currently connect to any external graph database — all relational reasoning is done in-memory over the three CSVs using pandas.
