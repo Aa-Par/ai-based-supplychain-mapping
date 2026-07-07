@@ -22,7 +22,7 @@ All data lives in three CSV files uploaded at runtime (no data is hardcoded into
 |---|---|---|
 | `supply_chain.csv` | Vehicle → Category → Component → Tier-1 Supplier (+country) → Tier-2 Supplier (+country) | The physical bill-of-materials / supplier graph for armored vehicle programs |
 | `ownership.csv` | Tier-1 Supplier → Owner → Owner Type → Owner Country → Stake % → Board Role → Financial Distress Score | Beneficial ownership chains, used to detect SOE and foreign-state exposure |
-| `indian_alternates.csv` | Company → Component Category → Components Supplied → Country | Candidate Indian suppliers that could substitute for an at-risk foreign supplier |
+| `indian_alternates.csv` | Company → Component Category → Components Supplied → Country → Lead Time in Weeks | Candidate Indian suppliers that could substitute for an at-risk foreign supplier |
 
 These three files together are the relational equivalent of a graph: `supply_chain.csv` encodes `Product –CONTAINS→ Component –SUPPLIED_BY→ Supplier –LOCATED_IN→ Country`, and `ownership.csv` encodes `Supplier –OWNED_BY→ Owner –LOCATED_IN→ Country`. The system reasons over these relationships in pandas rather than a graph database 
 
