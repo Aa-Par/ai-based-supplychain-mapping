@@ -1441,7 +1441,6 @@ def render_dashboard(analysis: dict, ownership_data: list):
             ("Portfolio Risk", f"{score}/100",   "#ef4444" if score >= 70 else "#f59e0b"),
             ("Risk Level",     level,             "#ef4444" if level == "CRITICAL" else "#f59e0b"),
             ("Suppliers",      len(suppliers),    "#60a5fa"),
-            ("Critical Alerts",alert_count,       "#ef4444"),
             ("Alternates",     len(crisis_alts),  "#22c55e"),
             ("LLM",            LLM_BACKEND.upper(),"#818cf8"),
             ("Own. Depth",     f"≥{OWNERSHIP_DEPTH_PCT}%", "#f59e0b"),
